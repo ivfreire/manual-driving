@@ -4,21 +4,40 @@
 [ext_resource type="PackedScene" uid="uid://bsbw2uk4vtn81" path="res://Models/car.fbx" id="2_xhrjm"]
 [ext_resource type="PackedScene" uid="uid://c1nuplb2mmcbs" path="res://Models/wheel.fbx" id="3_xhrjm"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_hece6"]
-size = Vector3(1.93042, 1.73621, 4.71002)
+[sub_resource type="BoxShape3D" id="BoxShape3D_xhrjm"]
+size = Vector3(1.85962, 4.72437, 1.76599)
 
 [node name="Car" type="RigidBody3D"]
+linear_damp = 0.03
 script = ExtResource("1_fdg2s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0128174, 0.920715, 0.049408)
-shape = SubResource("BoxShape3D_hece6")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.00756837, 0.925659, 0.0229419)
+shape = SubResource("BoxShape3D_xhrjm")
 
 [node name="CarMesh" parent="." instance=ExtResource("2_xhrjm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0551063, 0)
 
-[node name="FrontLeftWheel" parent="." instance=ExtResource("3_xhrjm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85255, 0.388534, -1.20939)
+[node name="Wheels" type="Node3D" parent="."]
 
-[node name="RearLeftWheel" parent="." instance=ExtResource("3_xhrjm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85255, 0.388534, 1.70685)
+[node name="RearLeft" type="Node3D" parent="Wheels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.843561, 0.388534, 1.5283)
+
+[node name="Wheel" parent="Wheels/RearLeft" instance=ExtResource("3_xhrjm")]
+
+[node name="FrontRight" type="Node3D" parent="Wheels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.849442, 0.388534, -1.38794)
+
+[node name="Wheel" parent="Wheels/FrontRight" instance=ExtResource("3_xhrjm")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="RearRight" type="Node3D" parent="Wheels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.849442, 0.388534, 1.5283)
+
+[node name="Wheel" parent="Wheels/RearRight" instance=ExtResource("3_xhrjm")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="FrontLeft" type="Node3D" parent="Wheels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.843561, 0.388534, -1.38794)
+
+[node name="Wheel" parent="Wheels/FrontLeft" instance=ExtResource("3_xhrjm")]

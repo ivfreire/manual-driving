@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxtd0tld7o4a5"]
+[gd_scene load_steps=4 format=3 uid="uid://cxtd0tld7o4a5"]
 
 [ext_resource type="PackedScene" uid="uid://s673oc07kl82" path="res://Prefabs/Car.tscn" id="1_kww8n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cvjmr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kww8n"]
 
 [node name="Stage" type="Node3D"]
 
@@ -15,10 +17,20 @@ transform = Transform3D(50, 0, 0, 0, 0.1, 0, 0, 0, 50, 0, 0, 0)
 shape = SubResource("BoxShape3D_cvjmr")
 
 [node name="Car" parent="." instance=ExtResource("1_kww8n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00321345, 2.21962)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.00321345, -3.79914)
+mass = 1000.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.794785, -0.355125, 0.49214, 0, 0.810921, 0.585156, -0.60689, -0.465073, 0.644508, 2.91479, 4.7049, 4.88237)
+transform = Transform3D(0.794786, -0.355125, 0.49214, 0, 0.810921, 0.585155, -0.60689, -0.465073, 0.644508, 5.11432, 6.9214, 13.1296)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.985559, 0.109301, -0.129332, 0, 0.763774, 0.645484, 0.169332, -0.636163, 0.752744, -7.81757, 3.17632, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(9.465, 0, 0, 0, 8.32564, 4.50222, 0, -4.50222, 8.32564, 0, -1.90179, 11.7427)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.978678, -0.205401, 0, 0.205401, 0.978678, 0, -0.123088, -0.0665616)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_kww8n")
