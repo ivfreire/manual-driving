@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://s673oc07kl82"]
+
+[ext_resource type="Script" uid="uid://dkp5c46f5om4m" path="res://Scripts/ManualVehicle.gd" id="1_fdg2s"]
+[ext_resource type="PackedScene" uid="uid://bsbw2uk4vtn81" path="res://Models/car.fbx" id="2_xhrjm"]
+[ext_resource type="PackedScene" uid="uid://c1nuplb2mmcbs" path="res://Models/wheel.fbx" id="3_xhrjm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hece6"]
+size = Vector3(1.93042, 1.73621, 4.71002)
+
+[node name="Car" type="RigidBody3D"]
+script = ExtResource("1_fdg2s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0128174, 0.920715, 0.049408)
+shape = SubResource("BoxShape3D_hece6")
+
+[node name="CarMesh" parent="." instance=ExtResource("2_xhrjm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0551063, 0)
+
+[node name="FrontLeftWheel" parent="." instance=ExtResource("3_xhrjm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85255, 0.388534, -1.20939)
+
+[node name="RearLeftWheel" parent="." instance=ExtResource("3_xhrjm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85255, 0.388534, 1.70685)
