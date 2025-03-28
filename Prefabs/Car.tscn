@@ -8,7 +8,7 @@
 size = Vector3(1.85962, 4.72437, 1.76599)
 
 [node name="Car" type="RigidBody3D"]
-linear_damp = 0.03
+linear_damp = 1.0
 script = ExtResource("1_fdg2s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

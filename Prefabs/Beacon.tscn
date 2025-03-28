@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bidfaacwy7ero"]
+
+[ext_resource type="PackedScene" uid="uid://43ycy2wk3gd" path="res://Models/beacon.fbx" id="1_0s85k"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hece6"]
+height = 1.31299
+radius = 0.0620117
+
+[node name="Beacon" type="RigidBody3D"]
+mass = 0.1
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.705322, 0)
+shape = SubResource("CylinderShape3D_hece6")
+
+[node name="Beacon" parent="." instance=ExtResource("1_0s85k")]

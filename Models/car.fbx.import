@@ -32,7 +32,18 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"car_paint": {
+"use_external/enabled": true,
+"use_external/path": "uid://dvaabr5hstjpf"
+},
+"glass": {
+"use_external/enabled": true,
+"use_external/path": "uid://v8v1glj4xhuc"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
